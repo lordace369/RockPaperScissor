@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+</head>
+<body>
+    <h1>Welcome to RPS</h1>
+    <div class="game">
+        <h1>Rock , Paper or Scissors ?</h1>
+        <form method="POST" action="/">
+            <!-- <input type="text" name="choice"  placeholder="Enter your choice" nullable = 'False'> -->
+            <input type="radio" name="choice" value="rock">rock
+            <input type="radio" name="choice" value="paper">paper
+            <input type="radio" name="choice"  value="scissor">scissor
+            <br>
+            <input type="submit" value="Lucky?">
+        </form>
+        <div class="gameresult">
+
+            {% if choice  %}
+                <h2 >You chose :</h2>
+                <h2 class="you">{{choice.upper()}}</h2>
+                <h2 >The computer chose :</h2>
+                <h2 class="comp">{{compChoice.upper()}}</h2>
+                <h1>{{verdict}}</h1>
+            {% else %}
+                <h1>play me!</h1>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
